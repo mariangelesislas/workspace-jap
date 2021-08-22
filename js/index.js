@@ -4,7 +4,7 @@ function validarCamposVacios(){
     let contrasena = document.getElementById("password").value;
     // si los campos no estan vacios se redirecciona al archivo home
     if((usuario !=="")&& (contrasena !=="")){
-        document.location.href="home.html";
+        document.location.href="product.html";
     }else
     {
         alert("Error, debe completar todos los campos.");
