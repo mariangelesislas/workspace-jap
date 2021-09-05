@@ -40,9 +40,14 @@ var getJSONData = function(url){
     });
 }
 
+// funcion que imprime en pantalla en nombre de usuario accediendo al id
+//https://stackoverflow.com/questions/35329180/localstorage-save-name-through-form-show-on-other-page con mi grupo nos basamos en este ejercicio
+//para poder hacer la tarea de Veterinaria Friends. Yo use este ejemplo tambien para esta tarea.
 window.onload = function() {
   document.getElementById('displayusername').innerText = localStorage.getItem('username');
 };
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

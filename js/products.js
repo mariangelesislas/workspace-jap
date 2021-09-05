@@ -51,7 +51,8 @@ function showProductsList(){
 
         if (((minCost == undefined) || (minCost != undefined && parseInt(product.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))){
-
+            
+               // recorre la lista para obtener todos los elementos del JSON 
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
         }
     });
-
+     // nos permite poder darle funcionabilidad al boton
     document.getElementById("sortAscByCost").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_COST);
     });
