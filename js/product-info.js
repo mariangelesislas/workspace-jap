@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+var currentCommentssArray = []; 
 function showComments(){
 
 
