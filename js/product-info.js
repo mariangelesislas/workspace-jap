@@ -71,9 +71,10 @@ function showComments(array){
             
            
             `
+            document.getElementById("comments-container").innerHTML = htmlContentToAppend;
         }
 
-    document.getElementById("comments-container").innerHTML = htmlContentToAppend;
+    
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
