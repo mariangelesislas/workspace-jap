@@ -79,7 +79,7 @@ function showComments(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_INFO_COMMENTS_URL).then(function(resultObj){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             
             showComments();
