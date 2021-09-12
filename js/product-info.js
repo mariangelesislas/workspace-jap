@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 var currentCommentsArray = []; 
+
 function showComments(){
 
 
