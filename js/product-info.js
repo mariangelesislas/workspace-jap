@@ -71,7 +71,7 @@ function showComments(){
             
            
             `
-            document.getElementById("comments-container").innerHTML = htmlContentToAppend;
+            document.getElementById("comments").innerHTML = htmlContentToAppend;
         }
 
     
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             
             
-            showComments();
+            showComments(); /* (commentArray, resultObj.data);*/
         }
     });
 });
