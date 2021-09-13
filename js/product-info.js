@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             
             
-            showComments(); /* (commentArray, resultObj.data);*/
+            showComments(commentArray, resultObj.data); 
         }
     });
 });
