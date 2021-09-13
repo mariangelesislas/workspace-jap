@@ -1,5 +1,5 @@
 var product = {};
-var commentArray = [];
+
 
 function showProductPictures(array){
 
@@ -45,48 +45,3 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-
-
-
-
-function showComments(){
-
-
-    let htmlContentToAppend = "";
-    for(let i = 0; i < commentArray.length; i++){
-        let comment = commentArray[i];
-
-            
-            
-        htmlContentToAppend += `
-            
-               
-        <div class="col">
-            <div class="d-flex w-100 justify-content-between">
-             <h4 class="mb-1">`+ comment.user + " " + comment.dateTime + " " + comment.score `</h4>
-            </div>
-                        
-            <br>
-            <div>
-             <h4 class="mb-1">`+ comment.description `</h4>
-            </div>
-        </div>
-            
-           
-        `
-    }
-    document.getElementById("comments").innerHTML = htmlContentToAppend;
-}
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            
-            
-            showComments(commentArray, resultObj.data); 
-        }
-    });
-});
