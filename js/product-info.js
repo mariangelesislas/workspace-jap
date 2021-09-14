@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productSoldCountHTML.innerHTML = product.soldCount;
-            productCostHTML.innerHTML= product.cost;
+            productCostHTML.innerHTML= product.currency + " " + product.cost;
 
             //Muestro las imagenes en forma de galería
             showProductPictures(product.images);
