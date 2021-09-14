@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             product = resultObj.data;
-
+            let productCategoryHTML= document.getElementById("productCategory")
             let productNameHTML = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productSoldCountHTML = document.getElementById("productSoldCount");
            
-        
+            productCategoryHTML.innerHTML = product.category
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productSoldCountHTML.innerHTML = product.soldCount;
