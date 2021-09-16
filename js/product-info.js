@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-var commentArray = [];
+/*var commentArray = [];
 
 function showComment(array){
     
@@ -81,6 +81,49 @@ document.addEventListener("DOMContentLoaded", function(e){
             commentArray = resultObj.data;
             
             showComment(commentArray);
+        }
+    });
+}); */
+
+var commentArray = [];
+
+function showComment(){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i < commentArray.length; i++){
+        let comment = commentArray[i];
+
+            htmlContentToAppend += `
+            
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ comment.user +`</h4>
+                            <small class="text-muted">` + comment.score + ` </small>
+                        </div>
+                        <p class="mb-1">` + comment.dateTime + `</p>
+                        <br>
+                     <div>
+                       <h4 class="mb-1">`+ comment.description +  `</h4>
+                     </div>
+                    </div>
+                </div>
+            
+            `
+        }
+
+        document.getElementById("comment-list-container").innerHTML = htmlContentToAppend;
+    }
+
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            
+            showComment();
         }
     });
 });
