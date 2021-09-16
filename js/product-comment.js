@@ -10,7 +10,7 @@ function showComment(array){
         <div class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="d-flex w-100 justify-content-between">
-                        <h2 class="mb-1">`+ comment.user + comment.score + comment.dateTime +`</h2>
+                        <h2 class="mb-1">`+ comment.user + " " + "Puntuación" + " " + comment.score + " " + comment.dateTime +`</h2>
                     </div>
                     <br>
                     <div>
