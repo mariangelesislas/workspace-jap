@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             commentArray = resultObj.data;
-            //Muestra la lista de productos
+            
             showComment(commentArray);
         }
     });
