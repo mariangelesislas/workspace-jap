@@ -11,7 +11,7 @@ function showComment(array){
                 <div class="row">
                     <div class="d-flex w-100 justify-content-between">
                         <h2 class="mb-1">`+ comment.user +`</h2>
-                        <b><small class="text-muted">` + comment.dateTime + ` vendidos</b></small>
+                        <b><small class="text-muted">` + comment.dateTime + `</b></small>
                     </div>
                     <br>
                     <div>
