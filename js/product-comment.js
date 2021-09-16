@@ -19,7 +19,7 @@ function showComment(array){
                     </div>
                     <br>
                     <div>
-                     <h4 class="mb-1">`+ comment.description `</h4>
+                     <h4 class="mb-1">`+ comment.description +`</h4>
                     </div>
                 </div>
         
