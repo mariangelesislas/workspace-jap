@@ -10,19 +10,13 @@ function showComment(array){
         <div class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="d-flex w-100 justify-content-between">
-                        <h2 class="mb-1">`+ comment.user +`</h2>
-                        <b><small class="text-muted">` + comment.dateTime + `</b></small>
-                    </div>
-                    <br>
-                    <div>
-                     <h5 class="mb-1">` + comment.score + `</h5>
+                        <h2 class="mb-1">`+ comment.user + comment.score + comment.dateTime +`</h2>
                     </div>
                     <br>
                     <div>
                      <h4 class="mb-1">`+ comment.description +`</h4>
                     </div>
                 </div>
-        
         </div>
         `
         
