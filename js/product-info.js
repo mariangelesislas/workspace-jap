@@ -1,7 +1,7 @@
 /* Primera parte mostrar la informacion del producto */
 
 
-var productInfo = {};
+var product= {};
 
 /* funcion que va a recorrer el array donde se encuentran las imagenes del producto */
 function showProductPictures(array){
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             
-            productInfo = resultObj.data;
+            product = resultObj.data;
 
             /* se crean variables locales que seran igual a un elemento con un determinado id*/
             let productCategoryHTML= document.getElementById("productCategory")
