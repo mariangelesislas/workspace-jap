@@ -1,6 +1,9 @@
+/* Primera parte mostrar la informacion del producto */
+
+
 var product = {};
 
-
+/* funcion que va a recorrer el array donde se encuentran las imagenes del producto */
 function showProductPictures(array){
 
     let htmlContentToAppend = "";
@@ -27,20 +30,23 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
+            
             product = resultObj.data;
+
+            /* se crean variables locales que seran igual a un elemento con un determinado id*/
             let productCategoryHTML= document.getElementById("productCategory")
             let productNameHTML = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productSoldCountHTML = document.getElementById("productSoldCount");
             let productCostHTML = document.getElementById("productCost");
-           
+           /* luego a la variable sera igual al atributo  de la lista que se quiera extraer . y se imprime en pantalla */
             productCategoryHTML.innerHTML = product.category
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productSoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML= product.currency + " " + product.cost;
 
-            //Muestro las imagenes en forma de galería
+            //Muestro las imagenes del producto en forma de galería
             showProductPictures(product.images);
         }
     });
@@ -48,16 +54,26 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 
+/* segunda parte mostrar los comentarios del JSON*/
 
 
+/* esta parte la hice porque fue una idea que se me ocurrio de reutilizar el codigo de product.js para ordenar los comentarios
+segun la fecha y popularidad*/
 const ORDER_ASC_BY_DATE = "Actuales";
 const ORDER_DESC_BY_DATE = "Antiguos";
 const ORDER_BY_MOST_POPULAR = "Mas populares";
 var currentSortCriteriaForComment = undefined;
+/* ------------------------------------------- */
+
+/* se crea una array vacio donde luego se pondra la informacion  /Esta es la parte obligatoria/ */
 var commentArray = [];
 
+
+/* funcion donde se usa el sort, que lo que hara sera ordenar segun fecha del comentario y popularidad*/
 function sortComment(criteria, array){
     let result = [];
+
+    /* comentarios mas recientes*/
     if (criteria === ORDER_ASC_BY_DATE)
     {
         result = array.sort(function(a, b) {
@@ -66,7 +82,7 @@ function sortComment(criteria, array){
             return 0;
         });
 
-      /* funcion que ordena de menor a mayor segun precio*/        
+      /* comentarios mas antiguos */        
     }else if (criteria === ORDER_DESC_BY_DATE){
         result = array.sort(function(a, b) {
             if ( a.dateTime < b.dateTime ){ return -1; }
@@ -74,7 +90,7 @@ function sortComment(criteria, array){
             return 0;
         });
 
-     /*funcion que ordena en ordena de mayor a emnor segun relevancia (prductos mas vendidos) */
+     /*comentarios mas populares */
     }else if (criteria === ORDER_BY_MOST_POPULAR){
         result = array.sort(function(a, b) {
             let aScore= parseInt(a.score);
@@ -89,6 +105,9 @@ function sortComment(criteria, array){
     return result;
 }
 
+
+/* funcion que recorre una lista para extrar la infomormacion y luego la imprime en pantalla*/
+// en este caso va a ser el nombre de usuario, fecha, comentario y calificacion 
 function showComment(){
 
     let htmlContentToAppend = "";
@@ -117,7 +136,7 @@ function showComment(){
         document.getElementById("comment-list-container").innerHTML = htmlContentToAppend;
     }
 
-    /*funcion que muestra segun el criterio y el array*/
+    /*funcion que va ordenar y mostrar los comentarios segun el criterio que se seleccione */
 function sortAndShowComment(commentSortCriteria, commentArray){
     currentSortCriteriaForComment = commentSortCriteria;
 
@@ -127,7 +146,7 @@ function sortAndShowComment(commentSortCriteria, commentArray){
 
     currentCommentArray = sortComment(currentSortCriteriaForComment, currentCommentArray);
 
-    //Muestro los productos ordenados
+    //Muestra los cometarios
     showComment();
 }
 
@@ -139,10 +158,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             commentArray = resultObj.data;
+            // de estar todo bien, los comentarios apareceran ordenados por mas recientes
             sortAndShowComment(ORDER_ASC_BY_DATE, resultObj.data);
         }
     });
-     // nos permite poder darle funcionabilidad al boton
+    
     document.getElementById("sortAscByDate").addEventListener("click", function(){
         sortAndShowComment(ORDER_ASC_BY_DATE);
     });
@@ -157,5 +177,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         showComment();
     });
 });
-            
-          
+        
+// las funciones anteriores se encargan de dar funcionabilidad a los botones
+// asi cuando uno da click se puede ver ordenados los comentarios
+// segun el criterio que uno desee 
+// accede al elemento con un determinado id, que tiene que estar nombrado
+// segun la funcion que cumple.
+// y una vez dado click, la funcion sortandShowcomment(x) x=criterio que uno quiere
+// se pondra en marcha
