@@ -101,15 +101,15 @@ function showComment(){
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ comment.user +`</h4>
-                            <small class="text-muted">` + comment.score + ` </small>
+                            <h6 class="mb-1">`+ comment.dateTime +  `</h6>
+                            <h6 class="mb-1">` + "Calificación:" + " " + comment.score + ` </h6>
                         </div>
-                        <p class="mb-1">` + comment.dateTime + `</p>
-                        <br>
-                     <div>
-                       <h4 class="mb-1">`+ comment.description +  `</h4>
-                     </div>
+                        
+                        <h4 class="mb-1">`+ comment.description + `</h4>
+                        </div>
                     </div>
                 </div>
+                <hr>
             
             `
         }
