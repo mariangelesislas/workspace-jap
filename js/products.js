@@ -10,7 +10,7 @@ var maxCost = undefined;  /*Variable de Costo Maximo */
 
 
    /* funcion que ordena  de mayor a menor segun precio*/
-function sortCategories(criteria, array){
+function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
     {
@@ -80,7 +80,7 @@ function showProductsList(){
 }
 
 
-/*funcion que muestra segun el criterio y el array*/
+/*funcion que muestra la lista segun el criterio dado de mayor precio a menor o viceversa, o por relevancia */
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteriaForProducts = sortCriteria;
 
@@ -88,7 +88,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
         currentProductsArray = productsArray;
     }
 
-    currentProductsArray = sortCategories(currentSortCriteriaForProducts, currentProductsArray);
+    currentProductsArray = sortProducts(currentSortCriteriaForProducts, currentProductsArray);
 
     //Muestro los productos ordenados
     showProductsList();
