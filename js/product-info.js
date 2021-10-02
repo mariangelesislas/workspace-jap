@@ -16,7 +16,6 @@ function showProductPictures(array){
         let imageSrc = array[i];
 
         htmlContentToAppend += `
-         
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
