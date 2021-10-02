@@ -54,3 +54,8 @@ window.onload = function() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+function delateUsername(){
+  localStorage.removeItem('username');
+  document.location.href="index.html";
+};        

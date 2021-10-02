@@ -1,7 +1,11 @@
-/* Primera parte mostrar la informacion del producto */
-
-
 var product= {};
+let productList =[] 
+/* se crea una array vacio donde luego se pondra la informacion  /Esta es la parte obligatoria/ */
+var commentArray = [];
+
+
+
+/* Primera parte mostrar la informacion del producto */
 
 /* funcion que va a recorrer el array donde se encuentran las imagenes del producto */
 function showProductPictures(array){
@@ -23,15 +27,38 @@ function showProductPictures(array){
     }
 }
 
+/* muestra la informacion de los productos relacionados*/
+function showRelated(array){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i< array.length;i++){
+        let related = array[i];
+        //html +=<div>${productos[relacionado].name} </div>
+        //html +=<div>${productos[relacionado].cost} </div>
+        htmlContentToAppend +=`  
+
+        <div class="card" style="width: 18rem;">
+           <img src=" ` + productList[related].imgSrc + ` " alt=" `  + ` class="card-img-top">
+           <div class="card-body">
+              <p class="card-text"> ` + productList[related].name +  ` </p>
+              <p class="card-text"> ` +  productList[related].cost  + ` </p>
+            </div>
+        </div>
+        <div class="p-3"></div>
+       `
+    }
+     document.getElementById("related-products").innerHTML = htmlContentToAppend;
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj0){
+        if (resultObj0.status === "ok")
         {
             
-            product = resultObj.data;
+            product = resultObj0.data;
 
             /* se crean variables locales que seran igual a un elemento con un determinado id*/
             let productCategoryHTML= document.getElementById("productCategory")
@@ -46,13 +73,26 @@ document.addEventListener("DOMContentLoaded", function(e){
             productSoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML= product.currency + " " + product.cost;
 
-            //Muestro las imagenes del producto en forma de galería
+            
             showProductPictures(product.images);
+        getJSONData(PRODUCTS_URL).then(function(resultObj1){
+                productList = resultObj1.data
+                showRelated(product.relatedProducts);
+            })
+    
         }
-    });
+    
+     });
 });
+  
 
 
+
+
+
+
+
+// ---------------------------------------PARTE DE COMENTARIOS--------------------------------
 
 /* segunda parte mostrar los comentarios del JSON*/
 
@@ -65,8 +105,7 @@ const ORDER_BY_MOST_POPULAR = "Mas populares";
 var currentSortCriteriaForComment = undefined;
 /* ------------------------------------------- */
 
-/* se crea una array vacio donde luego se pondra la informacion  /Esta es la parte obligatoria/ */
-var commentArray = [];
+
 
 
 /* funcion donde se usa el sort, que lo que hara sera ordenar segun fecha del comentario y popularidad*/
@@ -105,6 +144,8 @@ function sortComment(criteria, array){
     return result;
 }
 
+/* se crea una array vacio donde luego se pondra la informacion  /Esta es la parte obligatoria/ */
+var commentArray = [];
 
 /* funcion que recorre una lista para extrar la infomormacion y luego la imprime en pantalla*/
 // en este caso va a ser el nombre de usuario, fecha, comentario y calificacion 
@@ -185,3 +226,5 @@ document.addEventListener("DOMContentLoaded", function(e){
 // segun la funcion que cumple.
 // y una vez dado click, la funcion sortandShowcomment(x) x=criterio que uno quiere
 // se pondra en marcha
+
+
