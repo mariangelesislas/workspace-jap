@@ -43,7 +43,6 @@ function showInfoOfRelated(array){
               <a href="#" class="card-link">Ver Aquí</a>
             </div>
         </div>
-        <div class="p-3"></div>
        `
     }
      document.getElementById("related-products").innerHTML = htmlContentToAppend;
