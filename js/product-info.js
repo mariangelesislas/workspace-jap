@@ -70,8 +70,9 @@ document.addEventListener("DOMContentLoaded", function(e){
             productSoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML= product.currency + " " + product.cost;
 
-            
             showProductPictures(product.images);
+
+            
         getJSONData(PRODUCTS_URL).then(function(resultObj1){
                 productList = resultObj1.data
                 showInfoOfRelated(product.relatedProducts);
