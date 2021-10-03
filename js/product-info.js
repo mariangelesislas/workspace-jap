@@ -28,20 +28,19 @@ function showProductPictures(array){
 }
 
 /* muestra la informacion de los productos relacionados*/
-function showRelated(array){
+function showInfoOfRelated(array){
 
     let htmlContentToAppend = "";
     for(let i = 0; i< array.length;i++){
         let related = array[i];
-        //html +=<div>${productos[relacionado].name} </div>
-        //html +=<div>${productos[relacionado].cost} </div>
         htmlContentToAppend +=`  
 
         <div class="card" style="width: 18rem;">
            <img src=" ` + productList[related].imgSrc + ` " alt=" `  + ` class="card-img-top">
            <div class="card-body">
-              <p class="card-text"> ` + productList[related].name +  ` </p>
-              <p class="card-text"> ` +  productList[related].cost  + ` </p>
+              <h5 class="card-title">` + productList[related].name + `</h5>
+              <p class="card-text"> ` + productList[related].currency + " " + productList[related].cost  + ` </p>
+              <a href="#" class="card-link">Ver Aquí</a>
             </div>
         </div>
         <div class="p-3"></div>
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductPictures(product.images);
         getJSONData(PRODUCTS_URL).then(function(resultObj1){
                 productList = resultObj1.data
-                showRelated(product.relatedProducts);
+                showInfoOfRelated(product.relatedProducts);
             })
     
         }
