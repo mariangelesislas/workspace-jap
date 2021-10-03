@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             showProductPictures(product.images);
 
-            
+            // JSON anidado, extrae de la lista de productos
         getJSONData(PRODUCTS_URL).then(function(resultObj1){
                 productList = resultObj1.data
                 showInfoOfRelated(product.relatedProducts);
