@@ -34,8 +34,7 @@ function showInfoOfRelated(array){
     for(let i = 0; i< array.length;i++){
         let related = array[i];
         htmlContentToAppend +=`  
-
-        <div class="text-center" style="width: 18rem;">
+        <div class="card" style="width: 18rem;">
            <img src=" ` + productList[related].imgSrc + ` " alt=" `  + ` class="card-img-top">
            <div class="card-body">
               <h5 class="card-title">` + productList[related].name + `</h5>
