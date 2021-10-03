@@ -36,7 +36,7 @@ function showInfoOfRelated(array){
         htmlContentToAppend +=`  
 
         <div class="text-center" style="width: 18rem;">
-           <img src=" ` + productList[related].imgSrc + ` " alt=" `  + ` class="rounded">
+           <img src=" ` + productList[related].imgSrc + ` " alt=" `  + ` class="card-img-top">
            <div class="card-body">
               <h5 class="card-title">` + productList[related].name + `</h5>
               <p class="card-text"> ` + productList[related].currency + " " + productList[related].cost  + ` </p>
