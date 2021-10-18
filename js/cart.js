@@ -33,7 +33,7 @@ function showCartList(){
 
             // permite que se vea el total
              
-            document.getElementById("grandtotal").innerHTML =  article.currency + " " + article.count*article.unitCost;
+            document.getElementById("grandtotal").innerHTML = article.currency + " " + article.count * article.unitCost;
             
             
         }
