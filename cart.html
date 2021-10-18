@@ -51,14 +51,102 @@
         </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+      <br>
+      <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="cart">
+            </tbody>
+          </table>
+      </div>
     </div>
-  </div>
+    <hr class="mt-2 mb-3"/>
+    
+    <div class="container">
+     <p>Tipo de envio</p>
+     <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+      <label class="form-check-label" for="exampleRadios1">
+        Premium de 2 a 5 dias(15%)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+      <label class="form-check-label" for="exampleRadios2">
+        Express de 5 a 8 dias (%7)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+      <label class="form-check-label" for="exampleRadios3">
+        Standard de 12 a 15 dias (%5)
+      </label>
+    </div>
+    </div>
+    <br>
+    <hr class="mt-2 mb-3"/>
+
+    <div class="container">
+      <p>Direccion de envio</p>
+      <form>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label>Calle</label>
+            <input type="text" class="form-control"  placeholder="Calle"  required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Numero</label>
+            <input type="text" class="form-control" placeholder="Numero"  required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Esquina</label>
+            <input type="text" class="form-control" placeholder="Esquina"  required>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br>
+    <hr class="mt-2 mb-3"/>
+
+
+  
+    <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Costo de envio</th>
+          <th scope="col">Total($)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td>UYU 0</td>
+          <td id="grandtotal"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary mb-2">Finalizar compra</button>
+    </div>
+    
+
+
+    
+
+    
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
