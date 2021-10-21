@@ -54,24 +54,22 @@ function showProductsList(){
             
                // recorre la lista para obtener todos los elementos del JSON 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
+            
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <a href="#"><img src="` + product.imgSrc + `" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="product-info.html">`+ product.name +`</a>
+                                
+                            </h4>
+                            <p class="card-text">` + product.description + `</p>
+                            <h4 class="mb-1">`+ product.currency + " " + product.cost +  `</h4>
                             <small class="text-muted">` + product.soldCount + ` vendidos</small>
                         </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <br>
-                    <div>
-                     <h4 class="mb-1">`+ product.currency + " " + product.cost +  `</h4>
-                    </div>
                     </div>
                 </div>
-            </a>
+    
             `
         }
 
