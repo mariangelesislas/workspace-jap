@@ -1,0 +1,39 @@
+.no-border {
+    border: 0;
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+  }
+  
+  body{
+   
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+  }
+  
+  
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    
+  }
+  
+  .gradient {
+    cursor: pointer;
+      border-radius: 5em;
+      color: #fff;
+      background: linear-gradient(to right, #239098, #5dc1b9);
+      border: 0;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      margin-left: 35%;
+      font-size: 13px;
+      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  }
