@@ -36,6 +36,7 @@ function showInputValue(){
     }
 
 
+
 // una vez ingresada a la pagina se mostrara lo guardado anteriormente
 document.addEventListener("DOMContentLoaded",function(e){
     showInputValue();
