@@ -18,7 +18,7 @@ localStorage.setItem("userprofile",JSON.stringify(getUserSignUpForm));
 //permite mostrar en pantalla los valores obtenidos anteriormente en su input correspondiente
 function showInInputValue(){
     let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
-    console.log(userProfileAttributeValue.name);
+    console.log(userProfileAttributeValue.nombre);
 
 }
 
