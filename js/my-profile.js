@@ -1,5 +1,4 @@
 // obtiene el valor que se ingreso en los campos
-let getUserSignUpForm;
 
 function getAndSaveUserProfile(){
 let getUserSignUpForm={
@@ -24,6 +23,16 @@ let getUserSignUpForm={
 function showInputValue(){
     
     let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
+    document.getElementById("name").value = userProfileAttributeValue.nombre;
+    document.getElementById("firstsurname").value = userProfileAttributeValue.primerApellido;
+    document.getElementById("secondsurname").value = userProfileAttributeValue.segundoApellido;
+    document.getElementById("userage").value = userProfileAttributeValue.edad;
+    document.getElementById("cellphone").value = userProfileAttributeValue.celular;
+    document.getElementById("nickname").value = userProfileAttributeValue.sobrenombre;
+    document.getElementById("birthday").value = userProfileAttributeValue.cumpleaños;
+    document.getElementById("usergithub").value = userProfileAttributeValue.gitHubLink;
+    document.getElementById("email").value = userProfileAttributeValue.correo;
+    //permite ven en la consola lo que se agrego  ( NO TIENE POR QUE SER NECESARIO PERO YO LO DEJO POR LAS DUDAS)
     console.log(userProfileAttributeValue.nombre);
     console.log(userProfileAttributeValue.primerApellido);
     console.log(userProfileAttributeValue.segundoApellido);
