@@ -161,6 +161,7 @@ function showComment(){
                             <h4 class="mb-1">`+ comment.user +`</h4>
                             <h6 class="mb-1">`+ comment.dateTime +  `</h6>
                             <h6 class="mb-1">` + "Calificación:" + " " + comment.score + ` </h6>
+                            
                         </div>
                         
                         <h4 class="mb-1">`+ comment.description + `</h4>
