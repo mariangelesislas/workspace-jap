@@ -1,4 +1,6 @@
 // obtiene el valor que se ingreso en los campos
+let getUserSignUpForm;
+
 function getAndSaveUserProfile(){
 let getUserSignUpForm={
     nombre:document.getElementById("name").value,
@@ -20,7 +22,7 @@ let getUserSignUpForm={
 
 //permite mostrar en pantalla los valores obtenidos anteriormente en su input correspondiente
 function showInputValue(){
-    if ( "userprofile" === null){
+    if ( getUserSignUpForm === null){
     let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
     console.log(userProfileAttributeValue.nombre);
     console.log(userProfileAttributeValue.primerApellido);
