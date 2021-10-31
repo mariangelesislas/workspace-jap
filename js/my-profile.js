@@ -15,7 +15,13 @@ let getUserSignUpForm={
 localStorage.setItem("userprofile",JSON.stringify(getUserSignUpForm));
 }
 
+function showInInputValue(){
+    let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
+    console.log(userProfileAttributeValue.name);
 
-// permite ver con detalles lo que se encuentra dentro del objeto
-//let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
-//console.log(userProfileAttributeValue.name);
+}
+
+document.addEventListener("DOMContentLoaded",function(e){
+    showInInputValue();
+
+})
