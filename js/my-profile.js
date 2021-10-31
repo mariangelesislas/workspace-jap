@@ -22,7 +22,7 @@ let getUserSignUpForm={
 
 //permite mostrar en pantalla los valores obtenidos anteriormente en su input correspondiente
 function showInputValue(){
-    if ( getUserSignUpForm === null){
+    
     let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
     console.log(userProfileAttributeValue.nombre);
     console.log(userProfileAttributeValue.primerApellido);
@@ -35,7 +35,6 @@ function showInputValue(){
     console.log(userProfileAttributeValue.correo);
     }
 
-}
 
 // una vez ingresada a la pagina se mostrara lo guardado anteriormente
 document.addEventListener("DOMContentLoaded",function(e){
