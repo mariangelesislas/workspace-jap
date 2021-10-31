@@ -10,4 +10,4 @@ let getUserSignUpForm={
 
 }
 
-localStorage.setItem("userprofile",getUserSignUpForm);
+localStorage.setItem("userprofile",JSON.stringify(getUserSignUpForm));
