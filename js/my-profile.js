@@ -20,7 +20,7 @@ let getUserSignUpForm={
 
 //permite mostrar en pantalla los valores obtenidos anteriormente en su input correspondiente
 function showInputValue(){
-    if ( getUserSignUpForm === null){
+    if ( "userprofile" === null){
     let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
     console.log(userProfileAttributeValue.nombre);
     console.log(userProfileAttributeValue.primerApellido);
