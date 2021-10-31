@@ -20,8 +20,8 @@ let getUserSignUpForm={
 
 //permite mostrar en pantalla los valores obtenidos anteriormente en su input correspondiente
 function showInputValue(){
-    console.log(JSON.parse(localStorage.getItem("getUserSignUpForm")))
-    /*let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
+    if ( getUserSignUpForm === null){
+    let userProfileAttributeValue= JSON.parse(localStorage.getItem("userprofile"));
     console.log(userProfileAttributeValue.nombre);
     console.log(userProfileAttributeValue.primerApellido);
     console.log(userProfileAttributeValue.segundoApellido);
@@ -30,7 +30,8 @@ function showInputValue(){
     console.log(userProfileAttributeValue.sobrenombre);
     console.log(userProfileAttributeValue.cumpleaños);
     console.log(userProfileAttributeValue.gitHubLink);
-    console.log(userProfileAttributeValue.correo);*/
+    console.log(userProfileAttributeValue.correo);
+    }
 
 }
 
