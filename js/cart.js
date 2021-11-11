@@ -88,14 +88,26 @@ document.getElementById("tarjeta-de-credito").addEventListener("change",function
                          
 });
 
+
+function enablePaymentMethodRadios(){
+        document.getElementById("transferencia-bancaria").disabled = false;
+        document.getElementById("tarjeta-de-credito").disabled = false;
+        document.getElementById("transferencia-bancaria").checked = false;
+        document.getElementById("tarjeta-de-credito").checked = false;    
+}
+
+
+
 //_________________________________________________
+
+
 
 function validateCartDirectionFields(){
 
     let calle = document.getElementById("street").value;
     let numerohogar = document.getElementById("housenumber").value;
     let esquina = document.getElementById("corner").value;
-   
+
     if((calle ==="") && (numerohogar ==="") && (esquina ==="")){
         
         alert("Error, debe completar todos los campos");
@@ -117,21 +129,16 @@ function validatePaymentMethod(){
     let caducidad = document.getElementById("vencimiento").value;
     let numerodecuenta = document.getElementById("numero-de-cuenta").value;
 
-    if((numerodetarjeta ==="") && (codigodeseguridad ==="") && (caducidad ==="") && (numerodecuenta ==="")){
+    if((numerodetarjeta !=="") && (codigodeseguridad !=="") && (caducidad !=="") && (numerodecuenta ==="") || 
+    (numerodetarjeta ==="") && (codigodeseguridad ==="") && (caducidad ==="") && (numerodecuenta !=="")){
         
-        alert("Error, debe completar todos los campos");
+        alert("¡Sus datos han sido guardados");
         
     }else
     {
-        alert("¡Sus datos han sido guardados");
+        alert("Campos vacios");
     }
 
 }
 
-
-/*
-if ((document.getElementById("tarjeta-de-credito").disabled) && (document.getElementById("transferencia-bancaria").checked) && (numerodecuenta ==="")){
-    alert("Error, debe completar todos los campos");
-}
-*/
 
