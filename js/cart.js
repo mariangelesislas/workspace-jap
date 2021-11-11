@@ -21,7 +21,11 @@ function showCartList(){
     let htmlContentToAppend = "";
     let i = 0
         for(let article of cartList){
-            
+            if(article.currency == "USD"){
+                article.currency = "UYU";
+                article.unitCost = article.unitCost*40;
+
+            }
             
             htmlContentToAppend += `
             
@@ -39,7 +43,7 @@ function showCartList(){
             // permite que se vea el total
              
             document.getElementById("grandtotal").innerHTML = article.currency + " " + article.count * article.unitCost;
-        
+         
            
         }
      // muestra en el html la informacion
