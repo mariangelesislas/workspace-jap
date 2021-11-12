@@ -1,12 +1,52 @@
 var cartList = [];
-let subTotalCart;
-let totalCart;
+let subTotal; //  para funcion que calcula el valor de cada producto
+let totalCart;//  para calcular el total entre los subproductos y el costo de envios
+let subTotalProducts = 0; // para calcular la suma de los subtotales de todos los productos
+let shippingCostVar = 0;
+let shippingPorcentageVar = 0.15;
+
+
 
 // funcion que actualzia el subtotal cuando se cambia en valor de la cantidad de productos
 function updateSubtotal(count,unitCost,id,currency) {
-    subTotalCart = count*unitCost;
-    document.getElementById("subtotal"+id).innerHTML = currency + subTotalCart;
-       
+    subTotal = count*unitCost;
+    document.getElementById("subtotal"+id).innerHTML = currency + " " +  subTotal;
+    subTotalCart();
+    shippingCostProduct(shippingPorcentageVar);
+
+}
+
+
+function updateTotalCart(){ 
+  
+   
+        totalCart = subTotalProducts + shippingCostVar ;
+    
+    
+    document.getElementById("grandtotal").innerHTML = "UYU" + " " + totalCart;
+}
+
+
+function shippingCostProduct(shippingporsentage){
+    shippingPorcentageVar = shippingporsentage
+
+    shippingCostVar = shippingPorcentageVar * subTotalProducts;
+    document.getElementById("shippingcost").innerHTML = "UYU" + " " +shippingCostVar;
+    updateTotalCart();
+
+
+
+}
+
+function subTotalCart(){
+    
+    subTotalProducts = 0;
+    let subTotalDOM = document.getElementsByClassName("subtotal");
+    for (subtotal of subTotalDOM){
+        subTotalProducts += parseFloat(subtotal.innerHTML.split(" ")[1]);
+    }
+    document.getElementById("subT").innerHTML = "UYU" + " " + subTotalProducts;
+    
 
 }
 
@@ -14,8 +54,6 @@ function updateSubtotal(count,unitCost,id,currency) {
 // funcion que muestra los datos del carrito
 function showCartList(){
 
-
-    
 
     let htmlContentToAppend = "";
     let i = 0
@@ -33,20 +71,20 @@ function showCartList(){
             <td class="align-middle">`+article.name+`</td>
             <td class="align-middle">`+article.currency + " " + article.unitCost +`</td>
             <td class="align-middle"><input type="number" min ="1" value=`+ article.count+` id ="`+i+`" onchange="updateSubtotal(this.value,`+article.unitCost+`,`+i+`,'`+article.currency+`')"></td> 
-            <td class="align-middle subtotal" name="sub" id="subtotal`+i+`">`+article.currency + article.count * article.unitCost +`</td>
+            <td class="align-middle subtotal" name="sub" id="subtotal`+i+`">`+article.currency + " " + article.count * article.unitCost +`</td>
 
             </tr>`
             i++;
-             
-
-           
-             
-            
-         
            
         }
      // muestra en el html la informacion
     document.getElementById("cart").innerHTML = htmlContentToAppend;
+    subTotalCart();
+    shippingCostProduct(shippingPorcentageVar);
+
+
+ 
+
 }
 
 // funcion que obtiene la informacion del json
@@ -59,6 +97,16 @@ getJSONData(CART_INFO_URL).then(function(resultObj){
         
     }
 });
+
+
+
+
+
+
+
+
+
+
 
 //________________________________________________________________
 
