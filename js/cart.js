@@ -13,6 +13,8 @@ function updateSubtotal(count,unitCost,id,currency) {
     document.getElementById("subtotal"+id).innerHTML = currency + " " +  subTotal;
     subTotalCart();
     shippingCostProduct(shippingPorcentageVar);
+    
+    
 
 }
 
@@ -24,6 +26,7 @@ function updateTotalCart(){
     
     
     document.getElementById("grandtotal").innerHTML = "UYU" + " " + totalCart;
+    
 }
 
 
@@ -33,6 +36,7 @@ function shippingCostProduct(shippingporsentage){
     shippingCostVar = shippingPorcentageVar * subTotalProducts;
     document.getElementById("shippingcost").innerHTML = "UYU" + " " +shippingCostVar;
     updateTotalCart();
+    
 
 
 
@@ -50,6 +54,16 @@ function subTotalCart(){
 
 }
 
+function delateproduct(){
+    var delateproduct = document.getElementById("remove");
+    delateproduct.remove();
+    updateTotalCart();
+    subTotalCart();
+    shippingCostProduct(shippingPorcentageVar);
+   
+    
+
+}
 
 // funcion que muestra los datos del carrito
 function showCartList(){
@@ -66,14 +80,18 @@ function showCartList(){
             
             htmlContentToAppend += `
             
-            <tr>
-            <td><img src="`+article.src+`" class = "img-fluid" style ="max-width:50px!important"></td>
-            <td class="align-middle">`+article.name+`</td>
-            <td class="align-middle">`+article.currency + " " + article.unitCost +`</td>
-            <td class="align-middle"><input type="number" min ="1" value=`+ article.count+` id ="`+i+`" onchange="updateSubtotal(this.value,`+article.unitCost+`,`+i+`,'`+article.currency+`')"></td> 
-            <td class="align-middle subtotal" name="sub" id="subtotal`+i+`">`+article.currency + " " + article.count * article.unitCost +`</td>
-
-            </tr>`
+            <tr id="remove">
+            <td><img name="remove"  src="`+article.src+`" class = "img-fluid" style ="max-width:50px!important"></td>
+            <td class="align-middle" >`+article.name+`</td>
+            <td class="align-middle" >`+article.currency + " " + article.unitCost +`</td>
+            <td class="align-middle" ><input type="number" min ="1" value=`+ article.count+` id ="`+i+`" onchange="updateSubtotal(this.value,`+article.unitCost+`,`+i+`,'`+article.currency+`')"></td> 
+            <td class="align-middle subtotal" id="subtotal`+i+`">`+article.currency + " " + article.count * article.unitCost +`</td>      
+            <td class="align-middle"><button class="close" onclick="delateproduct()">Borrar</td> 
+            </tr>
+            
+            `
+           
+            
             i++;
            
         }
@@ -86,6 +104,8 @@ function showCartList(){
  
 
 }
+
+
 
 // funcion que obtiene la informacion del json
 
