@@ -53,7 +53,7 @@ function subTotalCart(){
     
 
 }
-
+// DESAFIANTE 7
 // funcion que elimina los productos
 function delateproduct(id){
     var delateproduct = document.getElementById("remove"+id);
