@@ -7,7 +7,7 @@ let shippingPorcentageVar = 0.15;
 
 
 
-// funcion que actualzia el subtotal cuando se cambia en valor de la cantidad de productos
+// funcion que actualiza el subtotal cuando se cambia en valor de la cantidad de productos
 function updateSubtotal(count,unitCost,id,currency) {
     subTotal = count*unitCost;
     document.getElementById("subtotal"+id).innerHTML = currency + " " +  subTotal;
@@ -18,7 +18,7 @@ function updateSubtotal(count,unitCost,id,currency) {
 
 }
 
-
+//funcion que muesta el precio total entre los productos + el costo de envio
 function updateTotalCart(){ 
   
    
@@ -29,7 +29,7 @@ function updateTotalCart(){
     
 }
 
-
+// funcion que calcula el costo de envio. 
 function shippingCostProduct(shippingporsentage){
     shippingPorcentageVar = shippingporsentage
 
@@ -41,7 +41,7 @@ function shippingCostProduct(shippingporsentage){
 
 
 }
-
+// funcion que muestra el subtotal del carrito (suma de todos los subtotales)
 function subTotalCart(){
     
     subTotalProducts = 0;
@@ -54,10 +54,11 @@ function subTotalCart(){
 
 }
 
+// funcion que elimina los productos
 function delateproduct(id){
     var delateproduct = document.getElementById("remove"+id);
     delateproduct.remove();
-    cartList.splice(id,1)
+    cartList.splice(id,1) // tambien lo elimina del cartlist
   
     updateTotalCart();
     subTotalCart();
@@ -73,6 +74,7 @@ function showCartList(){
 
     let htmlContentToAppend = "";
     let i = 0
+     // DESAFIANTE 5 : Pasa de USD a UYU
         for(let article of cartList){
             if(article.currency == "USD"){
                 article.currency = "UYU";
@@ -128,7 +130,7 @@ getJSONData(CART_INFO_URL).then(function(resultObj){
 
 
 
-
+// Funcion que desabilita los input de acuerdo al modo de pago(radio) que se selecciono
 
 //________________________________________________________________
 
@@ -157,6 +159,7 @@ document.getElementById("tarjeta-de-credito").addEventListener("change",function
                          
 });
 
+// Funcion que se usa en unh boton para poder habilitar el boton que fue deshabilitado
 
 function enablePaymentMethodRadios(){
         document.getElementById("transferencia-bancaria").disabled = false;
@@ -169,7 +172,7 @@ function enablePaymentMethodRadios(){
 
 //_________________________________________________
 
-
+// funcion que valida los campos de dirreccion 
 
 function validateCartDirectionFields(){
 
@@ -191,7 +194,7 @@ function validateCartDirectionFields(){
 
 }
 
-
+// Funcion que valida el modal
 
 function validatePaymentMethod(){
     let numerodetarjeta  = document.getElementById("numero-de-tarjeta").value;
