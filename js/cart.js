@@ -54,9 +54,11 @@ function subTotalCart(){
 
 }
 
-function delateproduct(){
-    var delateproduct = document.getElementById("remove");
+function delateproduct(id){
+    var delateproduct = document.getElementById("remove"+id);
     delateproduct.remove();
+    cartList.splice(id,1)
+  
     updateTotalCart();
     subTotalCart();
     shippingCostProduct(shippingPorcentageVar);
@@ -80,13 +82,13 @@ function showCartList(){
             
             htmlContentToAppend += `
             
-            <tr id="remove">
+            <tr id="remove`+i+`">
             <td><img name="remove"  src="`+article.src+`" class = "img-fluid" style ="max-width:50px!important"></td>
             <td class="align-middle" >`+article.name+`</td>
             <td class="align-middle" >`+article.currency + " " + article.unitCost +`</td>
             <td class="align-middle" ><input type="number" min ="1" value=`+ article.count+` id ="`+i+`" onchange="updateSubtotal(this.value,`+article.unitCost+`,`+i+`,'`+article.currency+`')"></td> 
             <td class="align-middle subtotal" id="subtotal`+i+`">`+article.currency + " " + article.count * article.unitCost +`</td>      
-            <td class="align-middle"><button class="close" onclick="delateproduct()">Borrar</td> 
+            <td class="align-middle"><button class="close" onclick="delateproduct(`+i+`)">Borrar</td> 
             </tr>
             
             `
@@ -182,6 +184,7 @@ function validateCartDirectionFields(){
     }else
     {
         alert("¡Su compra ha sido realizada con exito!");
+        
           
     }
   
@@ -204,8 +207,12 @@ function validatePaymentMethod(){
     }else
     {
         alert("Campos vacios");
+      
+        
     }
-
+    
 }
+
+// ______________________________
 
 
